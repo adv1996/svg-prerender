@@ -102,6 +102,9 @@ export function setupNetwork(element: string, playButton: string, max_timestamps
 
       select("#timeslider")
         .attr('value', index)
+
+      select("#currentTimestampLabel")
+        .text(index)
     }, 1000);
     // window.location.href = `/?timestamp=${d.target.value}`;
   });

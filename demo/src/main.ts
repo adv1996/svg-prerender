@@ -19,6 +19,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
     <a href="/?timestamp=3">Next 3</a>
     <input type="range" id="timeslider" name="timeslider" min="1" max=${max}>
     <button id="play">Play</button>
+    <p>Current Timestamp <span id="currentTimestampLabel"></span><p>
   </div>
 `
 
