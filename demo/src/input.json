@@ -1,0 +1,604 @@
+{
+   "nodes": [
+      {
+         "id": "env",
+         "class": "env",
+         "will_die": 0,
+         "will_divide": 0,
+         "self_efficacy": 0,
+         "self_signal": 0,
+         "timestamp": 0
+      },
+      {
+         "id": "CA6880",
+         "class": "seed",
+         "will_die": 0,
+         "will_divide": 1,
+         "self_efficacy": 0.0,
+         "self_signal": 0,
+         "timestamp": 0
+      },
+      {
+         "id": "env",
+         "class": "env",
+         "will_die": 0,
+         "will_divide": 0,
+         "self_efficacy": 0,
+         "self_signal": 0,
+         "timestamp": 1
+      },
+      {
+         "id": "CAda60",
+         "class": "non-Seed",
+         "will_die": 0,
+         "will_divide": 0,
+         "self_efficacy": 0.0,
+         "self_signal": 0,
+         "timestamp": 1
+      },
+      {
+         "id": "CA6880",
+         "class": "seed",
+         "will_die": 0,
+         "will_divide": 0,
+         "self_efficacy": 0.0,
+         "self_signal": 0,
+         "timestamp": 1
+      },
+      {
+         "id": "env",
+         "class": "env",
+         "will_die": 0,
+         "will_divide": 0,
+         "self_efficacy": 0,
+         "self_signal": 0,
+         "timestamp": 2
+      },
+      {
+         "id": "CAda60",
+         "class": "non-Seed",
+         "will_die": 0,
+         "will_divide": 0,
+         "self_efficacy": 0.0,
+         "self_signal": 1,
+         "timestamp": 2
+      },
+      {
+         "id": "CA6880",
+         "class": "seed",
+         "will_die": 0,
+         "will_divide": 0,
+         "self_efficacy": 0.06,
+         "self_signal": 1,
+         "timestamp": 2
+      },
+      {
+         "id": "env",
+         "class": "env",
+         "will_die": 0,
+         "will_divide": 0,
+         "self_efficacy": 0,
+         "self_signal": 0,
+         "timestamp": 3
+      },
+      {
+         "id": "CAda60",
+         "class": "non-Seed",
+         "will_die": 0,
+         "will_divide": 0,
+         "self_efficacy": 0.06,
+         "self_signal": 0,
+         "timestamp": 3
+      },
+      {
+         "id": "CA6880",
+         "class": "seed",
+         "will_die": 0,
+         "will_divide": 0,
+         "self_efficacy": 0.12,
+         "self_signal": 1,
+         "timestamp": 3
+      },
+      {
+         "id": "env",
+         "class": "env",
+         "will_die": 0,
+         "will_divide": 0,
+         "self_efficacy": 0,
+         "self_signal": 0,
+         "timestamp": 4
+      },
+      {
+         "id": "CAda60",
+         "class": "non-Seed",
+         "will_die": 0,
+         "will_divide": 0,
+         "self_efficacy": 0.12,
+         "self_signal": 0,
+         "timestamp": 4
+      },
+      {
+         "id": "CA6880",
+         "class": "seed",
+         "will_die": 0,
+         "will_divide": 0,
+         "self_efficacy": 0.17,
+         "self_signal": 1,
+         "timestamp": 4
+      },
+      {
+         "id": "env",
+         "class": "env",
+         "will_die": 0,
+         "will_divide": 0,
+         "self_efficacy": 0,
+         "self_signal": 0,
+         "timestamp": 5
+      },
+      {
+         "id": "CAda60",
+         "class": "non-Seed",
+         "will_die": 0,
+         "will_divide": 0,
+         "self_efficacy": 0.17,
+         "self_signal": 0,
+         "timestamp": 5
+      },
+      {
+         "id": "CA6880",
+         "class": "seed",
+         "will_die": 0,
+         "will_divide": 0,
+         "self_efficacy": 0.21,
+         "self_signal": 1,
+         "timestamp": 5
+      },
+      {
+         "id": "env",
+         "class": "env",
+         "will_die": 0,
+         "will_divide": 0,
+         "self_efficacy": 0,
+         "self_signal": 0,
+         "timestamp": 6
+      },
+      {
+         "id": "CAda60",
+         "class": "non-Seed",
+         "will_die": 0,
+         "will_divide": 0,
+         "self_efficacy": 0.22,
+         "self_signal": 0,
+         "timestamp": 6
+      },
+      {
+         "id": "CA6880",
+         "class": "seed",
+         "will_die": 0,
+         "will_divide": 0,
+         "self_efficacy": 0.25,
+         "self_signal": 0,
+         "timestamp": 6
+      },
+      {
+         "id": "env",
+         "class": "env",
+         "will_die": 0,
+         "will_divide": 0,
+         "self_efficacy": 0,
+         "self_signal": 0,
+         "timestamp": 7
+      },
+      {
+         "id": "CAda60",
+         "class": "non-Seed",
+         "will_die": 0,
+         "will_divide": 0,
+         "self_efficacy": 0.28,
+         "self_signal": 0,
+         "timestamp": 7
+      },
+      {
+         "id": "CA6880",
+         "class": "seed",
+         "will_die": 0,
+         "will_divide": 0,
+         "self_efficacy": 0.24,
+         "self_signal": 1,
+         "timestamp": 7
+      },
+      {
+         "id": "env",
+         "class": "env",
+         "will_die": 0,
+         "will_divide": 0,
+         "self_efficacy": 0,
+         "self_signal": 0,
+         "timestamp": 8
+      },
+      {
+         "id": "CAda60",
+         "class": "non-Seed",
+         "will_die": 0,
+         "will_divide": 0,
+         "self_efficacy": 0.32,
+         "self_signal": 0,
+         "timestamp": 8
+      },
+      {
+         "id": "CA6880",
+         "class": "seed",
+         "will_die": 0,
+         "will_divide": 0,
+         "self_efficacy": 0.23,
+         "self_signal": 1,
+         "timestamp": 8
+      },
+      {
+         "id": "env",
+         "class": "env",
+         "will_die": 0,
+         "will_divide": 0,
+         "self_efficacy": 0,
+         "self_signal": 0,
+         "timestamp": 9
+      },
+      {
+         "id": "CAda60",
+         "class": "non-Seed",
+         "will_die": 0,
+         "will_divide": 0,
+         "self_efficacy": 0.37,
+         "self_signal": 1,
+         "timestamp": 9
+      },
+      {
+         "id": "CA6880",
+         "class": "seed",
+         "will_die": 0,
+         "will_divide": 0,
+         "self_efficacy": 0.24,
+         "self_signal": 1,
+         "timestamp": 9
+      }
+   ],
+   "links": [
+      {
+         "source": "env",
+         "target": "CA6880",
+         "signal": 0,
+         "timestamp": 0
+      },
+      {
+         "source": "CA6880",
+         "target": "CA6880",
+         "signal": 0,
+         "timestamp": 0
+      },
+      {
+         "source": "env",
+         "target": "CAda60",
+         "signal": 1,
+         "timestamp": 1
+      },
+      {
+         "source": "CAda60",
+         "target": "CAda60",
+         "signal": 0,
+         "timestamp": 1
+      },
+      {
+         "source": "CA6880",
+         "target": "CAda60",
+         "signal": 0,
+         "timestamp": 1
+      },
+      {
+         "source": "env",
+         "target": "CA6880",
+         "signal": 1,
+         "timestamp": 1
+      },
+      {
+         "source": "CA6880",
+         "target": "CA6880",
+         "signal": 0,
+         "timestamp": 1
+      },
+      {
+         "source": "CAda60",
+         "target": "CA6880",
+         "signal": 0,
+         "timestamp": 1
+      },
+      {
+         "source": "env",
+         "target": "CAda60",
+         "signal": 1,
+         "timestamp": 2
+      },
+      {
+         "source": "CAda60",
+         "target": "CAda60",
+         "signal": 1,
+         "timestamp": 2
+      },
+      {
+         "source": "CA6880",
+         "target": "CAda60",
+         "signal": 1,
+         "timestamp": 2
+      },
+      {
+         "source": "env",
+         "target": "CA6880",
+         "signal": 1,
+         "timestamp": 2
+      },
+      {
+         "source": "CA6880",
+         "target": "CA6880",
+         "signal": 1,
+         "timestamp": 2
+      },
+      {
+         "source": "CAda60",
+         "target": "CA6880",
+         "signal": 1,
+         "timestamp": 2
+      },
+      {
+         "source": "env",
+         "target": "CAda60",
+         "signal": 0,
+         "timestamp": 3
+      },
+      {
+         "source": "CAda60",
+         "target": "CAda60",
+         "signal": 0,
+         "timestamp": 3
+      },
+      {
+         "source": "CA6880",
+         "target": "CAda60",
+         "signal": 1,
+         "timestamp": 3
+      },
+      {
+         "source": "env",
+         "target": "CA6880",
+         "signal": 0,
+         "timestamp": 3
+      },
+      {
+         "source": "CA6880",
+         "target": "CA6880",
+         "signal": 1,
+         "timestamp": 3
+      },
+      {
+         "source": "CAda60",
+         "target": "CA6880",
+         "signal": 1,
+         "timestamp": 3
+      },
+      {
+         "source": "env",
+         "target": "CAda60",
+         "signal": 0,
+         "timestamp": 4
+      },
+      {
+         "source": "CAda60",
+         "target": "CAda60",
+         "signal": 0,
+         "timestamp": 4
+      },
+      {
+         "source": "CA6880",
+         "target": "CAda60",
+         "signal": 0,
+         "timestamp": 4
+      },
+      {
+         "source": "env",
+         "target": "CA6880",
+         "signal": 0,
+         "timestamp": 4
+      },
+      {
+         "source": "CA6880",
+         "target": "CA6880",
+         "signal": 1,
+         "timestamp": 4
+      },
+      {
+         "source": "CAda60",
+         "target": "CA6880",
+         "signal": 1,
+         "timestamp": 4
+      },
+      {
+         "source": "env",
+         "target": "CAda60",
+         "signal": 1,
+         "timestamp": 5
+      },
+      {
+         "source": "CAda60",
+         "target": "CAda60",
+         "signal": 0,
+         "timestamp": 5
+      },
+      {
+         "source": "CA6880",
+         "target": "CAda60",
+         "signal": 1,
+         "timestamp": 5
+      },
+      {
+         "source": "env",
+         "target": "CA6880",
+         "signal": 1,
+         "timestamp": 5
+      },
+      {
+         "source": "CA6880",
+         "target": "CA6880",
+         "signal": 1,
+         "timestamp": 5
+      },
+      {
+         "source": "CAda60",
+         "target": "CA6880",
+         "signal": 1,
+         "timestamp": 5
+      },
+      {
+         "source": "env",
+         "target": "CAda60",
+         "signal": 1,
+         "timestamp": 6
+      },
+      {
+         "source": "CAda60",
+         "target": "CAda60",
+         "signal": 0,
+         "timestamp": 6
+      },
+      {
+         "source": "CA6880",
+         "target": "CAda60",
+         "signal": 1,
+         "timestamp": 6
+      },
+      {
+         "source": "env",
+         "target": "CA6880",
+         "signal": 1,
+         "timestamp": 6
+      },
+      {
+         "source": "CA6880",
+         "target": "CA6880",
+         "signal": 0,
+         "timestamp": 6
+      },
+      {
+         "source": "CAda60",
+         "target": "CA6880",
+         "signal": 0,
+         "timestamp": 6
+      },
+      {
+         "source": "env",
+         "target": "CAda60",
+         "signal": 0,
+         "timestamp": 7
+      },
+      {
+         "source": "CAda60",
+         "target": "CAda60",
+         "signal": 0,
+         "timestamp": 7
+      },
+      {
+         "source": "CA6880",
+         "target": "CAda60",
+         "signal": 1,
+         "timestamp": 7
+      },
+      {
+         "source": "env",
+         "target": "CA6880",
+         "signal": 0,
+         "timestamp": 7
+      },
+      {
+         "source": "CA6880",
+         "target": "CA6880",
+         "signal": 1,
+         "timestamp": 7
+      },
+      {
+         "source": "CAda60",
+         "target": "CA6880",
+         "signal": 1,
+         "timestamp": 7
+      },
+      {
+         "source": "env",
+         "target": "CAda60",
+         "signal": 0,
+         "timestamp": 8
+      },
+      {
+         "source": "CAda60",
+         "target": "CAda60",
+         "signal": 0,
+         "timestamp": 8
+      },
+      {
+         "source": "CA6880",
+         "target": "CAda60",
+         "signal": 1,
+         "timestamp": 8
+      },
+      {
+         "source": "env",
+         "target": "CA6880",
+         "signal": 0,
+         "timestamp": 8
+      },
+      {
+         "source": "CA6880",
+         "target": "CA6880",
+         "signal": 1,
+         "timestamp": 8
+      },
+      {
+         "source": "CAda60",
+         "target": "CA6880",
+         "signal": 1,
+         "timestamp": 8
+      },
+      {
+         "source": "env",
+         "target": "CAda60",
+         "signal": 1,
+         "timestamp": 9
+      },
+      {
+         "source": "CAda60",
+         "target": "CAda60",
+         "signal": 1,
+         "timestamp": 9
+      },
+      {
+         "source": "CA6880",
+         "target": "CAda60",
+         "signal": 1,
+         "timestamp": 9
+      },
+      {
+         "source": "env",
+         "target": "CA6880",
+         "signal": 1,
+         "timestamp": 9
+      },
+      {
+         "source": "CA6880",
+         "target": "CA6880",
+         "signal": 1,
+         "timestamp": 9
+      },
+      {
+         "source": "CAda60",
+         "target": "CA6880",
+         "signal": 1,
+         "timestamp": 9
+      }
+   ],
+   "max_timestamps": 10
+}

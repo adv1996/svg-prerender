@@ -21,6 +21,6 @@
 }
 
 .charts {
-  display: 'flex';
-  flexDirection: 'column';
+  display: flex;
+  flex-direction: row;
 }

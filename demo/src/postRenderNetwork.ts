@@ -13,6 +13,7 @@ export interface RenderGraph {
     id: number;
     name: string;
     "data-timestamp": string;
+    class: string;
     cx: number;
     cy: number;
     r: number;
@@ -24,13 +25,14 @@ export interface RenderGraph {
     y2: number;
     "data-timestamp": string;
   }[];
+  max_timestamps: number;
 }
 
-export function setupPostRenderNetwork(element: string, graph: RenderGraph) {
-  const timestamps = range(1, 3).map((d) => `${d}`);
+export function setupPostRenderNetwork(element: string, graph: RenderGraph) { // Add num_timestamps as parameter
+  const timestamps = range(0, graph.max_timestamps).map((d) => `${d}`);  
   let index = 0;
-  const height = 300;
-  const width = 300;
+  const height = 500;
+  const width = 500;
 
   const svg = select(element)
     .append("svg")
@@ -38,7 +40,7 @@ export function setupPostRenderNetwork(element: string, graph: RenderGraph) {
     .attr("width", width)
     .style("border", "1px solid black");
 
-  setInterval(function () {
+  setInterval(function () { // running code every X time 
     // Move to next timestamp
     if (index < timestamps.length - 1) {
       index++;
@@ -53,6 +55,11 @@ export function setupPostRenderNetwork(element: string, graph: RenderGraph) {
     const updatedLinks = graph.links.filter(
       (link) => link["data-timestamp"] === timestamps[index]
     );
+
+    console.log(updatedLinks)
+
+    //update arrowheads 
+
     // Animate Nodes
     svg
       .selectAll(".renderNodes")
@@ -60,10 +67,31 @@ export function setupPostRenderNetwork(element: string, graph: RenderGraph) {
       .join(
         (enter) =>
           enter
-            .append("circle")
-            .attr("cx", 0)
-            .attr("cy", 0)
-            .attr("r", 0)
+            // .append("circle")
+            // .attr("cx", 0)
+            // .attr("cy", 0)
+            // .attr("r", 0)
+            .append("ellipse")
+            .attr("rx", 5)
+            .attr("ry", 20)
+
+            // Variable size for "Env" node 
+            .attr("rx", d => {
+              if(d.class === "env"){
+                return 50
+              }
+              else {
+                return 10 
+              } 
+            })
+            .attr("ry", d => {
+              if(d.class === "env"){
+                return 30
+              }
+              else {
+                return 10 
+              } 
+            })
             .attr("class", "renderNodes")
             .transition()
             .duration(500)

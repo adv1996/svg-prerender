@@ -1,3 +1,6 @@
+const {executablePath} = require('puppeteer');
+const data = require('./demo/src/input.json')
+ 
 require('dotenv').config();
 const puppeteer = require('puppeteer-core');
 const fs = require('fs');
@@ -33,7 +36,7 @@ async function waitForEvent(page, eventName, seconds) {
 }
 
 const urlToElements = async (url, className) => {
-  const browser = await puppeteer.launch({ headless: 'new', executablePath: EXECUTABLE_PATH });
+  const browser = await puppeteer.launch({ headless: 'new', executablePath: executablePath() });
   const page = await browser.newPage();
   await page.goto(url);
 
@@ -68,16 +71,17 @@ const saveData2File = (data) => {
 }
 
 async function main() {
-  const LIMIT = 3
+  const LIMIT = data.max_timestamps  
   let graph = {
     nodes: [],
-    links: []
+    links: [], 
+    max_timestamps: LIMIT
   }
-  for (let i = 1; i <= LIMIT; i++) {
-    const nodes = await urlToElements(`http://127.0.0.1:5173/?timestamp=${i}`, 'node')
+  for (let i = 0; i <= LIMIT; i++) {
+    const nodes = await urlToElements(`http://localhost:5173/?timestamp=${i}`, 'node')
     graph.nodes = [...graph.nodes, ...nodes]
 
-    const links = await urlToElements(`http://127.0.0.1:5173/?timestamp=${i}`, 'link')
+    const links = await urlToElements(`http://localhost:5173/?timestamp=${i}`, 'link')
     graph.links = [...graph.links, ...links]
   }
   saveData2File(graph)
