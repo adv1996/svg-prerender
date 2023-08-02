@@ -132,7 +132,7 @@ export function setupNetwork(
       } else {
         index = 0;
       }
-      runSimulation("#prerender-canvas", height, width, staticGraph, index);
+      runSimulation("#prerender-canvas", height, width, staticGraph as unknown as Graph, index);
       console.log("Playing...");
 
       select("#timeslider").attr("value", index);
@@ -148,7 +148,7 @@ export function setupNetwork(
     .style("border", "1px solid black")
     .attr("id", "prerender-canvas");
 
-  runSimulation("#prerender-canvas", height, width, staticGraph, timestamp);
+  runSimulation("#prerender-canvas", height, width, staticGraph as unknown as Graph, timestamp);
 
   return svg;
 }
