@@ -2,8 +2,9 @@ require('dotenv').config();
 const puppeteer = require('puppeteer-core');
 const fs = require('fs');
 
-const EXECUTABLE_PATH = process.env.EXECUTABLE_PATH
+const data = require('./exports/output.json')
 
+const EXECUTABLE_PATH = process.env.EXECUTABLE_PATH
 /**
  * Wait for the browser to fire an event (including custom events)
  * @param {puppeteer.page} page - Event name

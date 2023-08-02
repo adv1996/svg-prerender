@@ -123,7 +123,7 @@ export function setupNetwork(
   const timestampParam = getURLParameter("timestamp");
   const timestamp = timestampParam ? parseInt(timestampParam) : 1;
 
-  select(playButton).on("click", (d) => {
+  select(playButton).on("click", () => {
     console.log("Playing Animation");
     let index = timestamp;
     setInterval(function () {
