@@ -14,15 +14,22 @@ export interface RenderGraph {
     name: string;
     "data-timestamp": string;
     class: string;
-    cx: number;
-    cy: number;
-    r: number;
+    cx: string;
+    cy: string;
+    rx: string; 
+    ry: string;
+    fill: string;
+    opacity: string; 
+    stroke: string;
+    "stroke-width": string;
+
   }[];
   links: {
     x1: number;
     x2: number;
     y1: number;
     y2: number;
+    stroke: string;
     "data-timestamp": string;
   }[];
   max_timestamps: number;
@@ -39,6 +46,19 @@ export function setupPostRenderNetwork(element: string, graph: RenderGraph) { //
     .attr("height", height)
     .attr("width", width)
     .style("border", "1px solid black");
+
+  // const arrowhead = svg.append("defs").append("marker")
+  //   .attr("id", "arrowhead")
+  //   .attr("markerUnits", "strokeWidth")
+  //   .attr("markerWidth", "4")
+  //   .attr("markerHeight", "4")
+  //   .attr("viewBox", "0 0 10 10")
+  //   .attr("refX", "10")
+  //   .attr("refY", "5")
+  //   .attr("orient", "auto")
+  //   .append("path")
+  //   .attr("d", "M0,0 L10,5 L0,10 Z") // Customize the path to create your arrowhead shape
+
 
   setInterval(function () { // running code every X time 
     // Move to next timestamp
@@ -72,40 +92,25 @@ export function setupPostRenderNetwork(element: string, graph: RenderGraph) { //
             // .attr("cy", 0)
             // .attr("r", 0)
             .append("ellipse")
-            .attr("rx", 5)
-            .attr("ry", 20)
+            
 
             // Variable size for "Env" node 
-            .attr("rx", d => {
-              if(d.class === "env"){
-                return 50
-              }
-              else {
-                return 10 
-              } 
+            .attr("rx", d => {return d.rx })
+            .attr("ry", d => {return d.ry
             })
-            .attr("ry", d => {
-              if(d.class === "env"){
-                return 30
-              }
-              else {
-                return 10 
-              } 
-            })
+            .attr("fill", d => {return d.fill})
+            .attr("opacity", d => { return d.opacity})
             .attr("class", "renderNodes")
             .transition()
             .duration(500)
-            .attr("r", (d) => d.r)
             .attr("cx", (d) => d.cx)
             .attr("cy", (d) => d.cy)
             .selection(),
         (update) =>
           update
-            .attr('fill', 'red')
+        
             .transition()
             .duration(500)
-            .attr('fill', 'black')
-            .attr("r", (d) => d.r)
             .attr("cx", (d) => d.cx)
             .attr("cy", (d) => d.cy)
             .selection(),
@@ -119,26 +124,33 @@ export function setupPostRenderNetwork(element: string, graph: RenderGraph) { //
         (enter) =>
           enter
             .append("line")
-            .attr("x1", 0)
-            .attr("x2", 0)
-            .attr("y1", 0)
-            .attr("y2", 0)
+            .attr("x1", d => d.x1)
+            .attr("x2", d => d.x1)
+            .attr("y1", d => d.y1)
+            .attr("y2", d => d.y1)
             .attr("stroke", 'black')
             .attr("fill", 'none')
+            .attr("stroke", d => d.stroke)
             .attr("class", "renderLinks")
+            .style("stroke-width", 5)
+            .attr("marker-end", "url(#arrowhead)") // Apply the Arrowhead Marker to Links
+            // .raise()
             .transition()
             .duration(500)
             .attr("x1", (d) => d.x1)
             .attr("x2", (d) => d.x2)
             .attr("y1", (d) => d.y1)
             .attr("y2", (d) => d.y2)
+            
             .selection(),
+            
         (update) =>
           update
             .attr("x1", (d) => d.x1)
             .attr("x2", (d) => d.x2)
             .attr("y1", (d) => d.y1)
             .attr("y2", (d) => d.y2)
+            // .lower()
             .selection(),
         (exit) => exit.remove()
       )
