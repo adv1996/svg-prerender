@@ -3,8 +3,8 @@ import graph from "./input.json";
 
 export function setupLegend(element: string) {
 
-    const height = 300
-    const width = 400
+    const height =300
+    const width = 500
 
     const svg = select(element)
     .append("svg")
@@ -31,7 +31,7 @@ export function setupLegend(element: string) {
                     {"id": "Pink Node: Dividing", "class": "circle", "color": "pink"},
                     {"id": "Red Node: Dying", "class": "circle", "color": "red"},
                     {"id": "Yellow Node: Seed Cell", "class": "circle", "color": "yellow"},
-                    {"id": "White-Black Node: Cell Self-Efficacy \n(Darker = higher S.E)", "class": "circle", "color": "grey"}
+                    {"id": "White-Black Node: Cell Self-Efficacy", "class": "circle", "color": "grey"}
     ]
 
             

@@ -42,8 +42,10 @@ function runSimulation(svgId: string, height: number, width: number, graph: Grap
   const arrowhead = svg.append("defs").append("marker")
     .attr("id", "arrowhead")
     .attr("markerUnits", "strokeWidth")
-    .attr("markerWidth", "4")
-    .attr("markerHeight", "4")
+    .attr("markerWidth", "6")
+    .attr("fill", "grey")
+    .attr("opacity", .7)
+    .attr("markerHeight", "6")
     .attr("viewBox", "0 0 10 10")
     .attr("refX", "10")
     .attr("refY", "5")
@@ -54,13 +56,13 @@ function runSimulation(svgId: string, height: number, width: number, graph: Grap
 
   const links = svg
     .selectAll(".link")
-    .data(linksData.filter((link) => link.timestamp === timestamp))
+    .data(linksData.filter((link) => link.timestamp === timestamp  && link.source !== link.target ))
     .join("line")
     .attr("class", "link")
     // .attr("stroke", "red")
     .attr("stroke", d => (d.signal === 1 ? "green" : "grey")) // Set the color based on the signal property
-    // .style("stroke-dasharray", 3)  
-    .style("stroke-width", 5)
+    .style("stroke-dasharray", 3)  
+    .style("stroke-width", 3)
     .attr("fill", "none")
     .attr("data-timestamp", timestamp)
     .attr("marker-end", "url(#arrowhead)"); // Apply the Arrowhead Marker to Links
@@ -88,19 +90,12 @@ function runSimulation(svgId: string, height: number, width: number, graph: Grap
       }
     })
     .attr("data-timestamp", timestamp)
-    .attr("stroke", (d) => {
-
-      if (d.self_signal === 1){
-        return "green";
-      }
-      else {
-        return "black";
-      }
-    })
+    
     .attr("stroke-width", "4")
     .attr("class", "node")
     // .attr("fill", "blue")
     .attr("fill", d => {
+      
       if (d.class === "env") {
         return "green";
       } else if (d.will_die === 1) {
@@ -113,9 +108,30 @@ function runSimulation(svgId: string, height: number, width: number, graph: Grap
         return "black";
       }
     })
+    .attr("stroke", (d) => {
+
+      if (d.self_signal === 1){
+        return "green";
+      }
+      else if (d.class === "env") {
+          return "green";
+      } 
+      else if (d.will_die === 1) {
+        return "red";
+      } 
+      else if (d.will_divide === 1) {
+        return "pink";
+      } 
+      else if (d.class === "seed") {
+        return "yellow";
+      } 
+      else {
+        return "black";
+      }
+    })
     .attr("opacity", d => { // Does this work, or need relative calculation? Is self-efficacy metric always between 0-1?
       if (d.class === "non-seed") {
-        return d.self_efficacy
+        return d.self_efficacy + .3
       }
       else {
         return 1
@@ -152,17 +168,53 @@ function runSimulation(svgId: string, height: number, width: number, graph: Grap
 
   function ticked() {
 
-
     links
       .attr("x1", (d: any) => {
         if (d.source.id == "env"){
           return width / 2
         }
+
+        else if (d.source.class == "seed"){
+          return width / 2
+        }
+
         else {return d.source.x}
       })
-      .attr("y1", (d: any) => d.source.y)
-      .attr("x2", (d: any) => d.target.x)
-      .attr("y2", (d: any) => d.target.y)
+
+      .attr("y1", (d: any) => {
+        if (d.source.id == "env"){
+          return height / 8
+        }
+
+        else if (d.source.class == "seed"){
+          return height / 4
+        }
+
+        else {return d.source.y}
+      })
+
+      .attr("x2", (d: any) => {
+        if (d.target.id == "env"){
+          return width / 2
+        }
+        else if (d.target.class == "seed"){
+          return width / 2
+        }
+
+        else {return d.target.x}
+      })
+
+      .attr("y2", (d: any) => {
+        if (d.target.id == "env"){
+          return height / 8
+        }
+
+        else if (d.target.class == "seed"){
+          return height / 4
+        }
+
+        else {return d.target.y}
+      })
 
       .attr("marker-end", "url(#arrowhead)") // Apply the Arrowhead Marker to Links
       .lower()
@@ -174,6 +226,11 @@ function runSimulation(svgId: string, height: number, width: number, graph: Grap
           return width / 2
         } 
 
+        else if (d.class === "seed") {
+          return width / 2
+        } 
+         
+
         else { return d?.x}
       
       })
@@ -183,6 +240,10 @@ function runSimulation(svgId: string, height: number, width: number, graph: Grap
           return height / 8
         } 
 
+        else if (d.class === "seed") {
+          return height / 4
+        } 
+
         else { return d?.y}
         
       });
@@ -190,7 +251,7 @@ function runSimulation(svgId: string, height: number, width: number, graph: Grap
   }
 
   const simulation = forceSimulation(nodesData.filter((node) => node.timestamp === timestamp))
-    .force("charge", forceManyBody().strength(-20))
+    .force("charge", forceManyBody().strength(200))
     .force('collision', forceCollide().radius(function (d) {
       return 30 //Create a variable collide radius ? d.radius 
     }))
@@ -199,7 +260,7 @@ function runSimulation(svgId: string, height: number, width: number, graph: Grap
       "link",
       forceLink(linksData.filter((link) => link.timestamp === timestamp))
         .id((d: any) => d.id)
-        .distance(100)
+        .distance(400)
     )
     .on("tick", ticked)
     .on("end", function () {
@@ -212,8 +273,8 @@ function runSimulation(svgId: string, height: number, width: number, graph: Grap
 
 // Set up the D3 force simulation
 export function setupNetwork(element: string, playButton: string, max_timestamps: number) {
-  const height = 500;
-  const width = 500;
+  const height = 600;
+  const width = 800;
 
   const timestampParam = getURLParameter("timestamp");
   const timestamp = timestampParam ? parseInt(timestampParam) : 1;
