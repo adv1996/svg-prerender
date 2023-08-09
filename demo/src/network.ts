@@ -13,7 +13,7 @@ import staticGraph from "./graph.json";
 
 interface Graph {
   nodes: ({
-    id: number;
+    id: number | string;
     name: string;
     timestamp: number;
   } & SimulationNodeDatum)[];
@@ -123,22 +123,31 @@ export function setupNetwork(
   const timestampParam = getURLParameter("timestamp");
   const timestamp = timestampParam ? parseInt(timestampParam) : 1;
 
-  select(playButton).on("click", () => {
-    console.log("Playing Animation");
-    let index = timestamp;
-    setInterval(function () {
-      if (index < max_timestamps) {
-        index++;
-      } else {
-        index = 0;
-      }
-      runSimulation("#prerender-canvas", height, width, staticGraph as unknown as Graph, index);
-      console.log("Playing...");
+  let animationInterval: string | number | NodeJS.Timeout | undefined;
+  let isPlaying = false
 
-      select("#timeslider").attr("value", index);
-
-      select("#currentTimestampLabel").text(index);
-    }, 1000);
+  select(playButton).on("click", function () {
+    isPlaying = !isPlaying
+    if (isPlaying) {
+      select(this).text('Pause')
+      console.log("Playing Animation");
+      let index = timestamp;
+      animationInterval = setInterval(function () {
+        if (index < max_timestamps) {
+          index++;
+        } else {
+          index = 1;
+        }
+        runSimulation("#prerender-canvas", height, width, staticGraph as unknown as Graph, index);
+        console.log("Playing...");
+  
+        select("#timeslider").attr("value", index);
+        select("#currentTimestampLabel").text(index);
+      }, 1000);
+    } else {
+      select(this).text('Play')
+      clearInterval(animationInterval)
+    }
   });
 
   const svg = select(element)
