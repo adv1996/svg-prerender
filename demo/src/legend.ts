@@ -22,16 +22,16 @@ export function setupLegend(element: string) {
     console.log(number_agents)
 
     const legend_data = [
-                    {"id": "Time Step: ", "class": "none", "color": "black"},
-                    {"id": "Number of Agents: " + number_agents, "class": "none",  "color": "black"},
-                    {"id": "Average Out Degree", "class": "none", "color": "black"},
-                    {"id": "Green Edge: 1","class": "line", "color": "green"},
-                    {"id": "Grey Edge: 0", "class": "line", "color": "grey"},
-                    {"id": "Green Node: Environment", "class": "circle", "color": "green"},
-                    {"id": "Pink Node: Dividing", "class": "circle", "color": "pink"},
-                    {"id": "Red Node: Dying", "class": "circle", "color": "red"},
-                    {"id": "Yellow Node: Seed Cell", "class": "circle", "color": "yellow"},
-                    {"id": "White-Black Node: Cell Self-Efficacy", "class": "circle", "color": "grey"}
+                    {"label": "Time Step: 0", "id": "legendTimestep", "class": "none", "color": "black"},
+                    {"label": "Number of Agents: 0" , "id": "numAgents", "class": "none",  "color": "black"},
+                    {"label": "Average Out Degree", "class": "none", "color": "black"},
+                    {"label": "Green Edge: 1","class": "line", "color": "green"},
+                    {"label": "Grey Edge: 0", "class": "line", "color": "grey"},
+                    {"label": "Green Node: Environment", "class": "circle", "color": "green"},
+                    {"label": "Pink Node: Dividing", "class": "circle", "color": "pink"},
+                    {"label": "Red Node: Dying", "class": "circle", "color": "red"},
+                    {"label": "Yellow Node: Seed Cell", "class": "circle", "color": "yellow"},
+                    {"label": "White-Black Node: Cell Self-Efficacy", "class": "circle", "color": "grey"}
     ]
 
             
@@ -59,7 +59,7 @@ export function setupLegend(element: string) {
     legendEntries.append("text")
     .attr("x", 20)
     .attr("y", 10)
-    .text(d => d.id);
-
+    .text(d => d.label)
+    .attr("class", d => d.id || d.class);
 
 }
